@@ -30,7 +30,7 @@ func (s Service) Read() {
 	panic("implement me")
 }
 
-func (s Service) CreateActivity(ctx context.Context, request *pb.CreateActivityRequest) (*pb.CreateActivityResponse, error) {
+func (s Service) CreateActivity(ctx context.Context, request *pb.CreateActivityRequest) (*pb.Response, error) {
 	panic("implement me")
 }
 
@@ -38,10 +38,10 @@ func (s Service) GetActivity(ctx context.Context, request *pb.GetActivityRequest
 	panic("implement me")
 }
 
-func (s Service) UpdateActivity(ctx context.Context, request *pb.UpdateActivityRequest) (*pb.UpdateActivityResponse, error) {
+func (s Service) UpdateActivity(ctx context.Context, request *pb.UpdateActivityRequest) (*pb.Response, error) {
 	panic("implement me")
 }
 
-func (s Service) DeleteActivity(ctx context.Context, request *pb.DeleteActivityRequest) (*pb.DeleteActivityResponse, error) {
+func (s Service) DeleteActivity(ctx context.Context, request *pb.DeleteActivityRequest) (*pb.Response, error) {
 	panic("implement me")
 }

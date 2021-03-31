@@ -35,7 +35,7 @@ message CreateActivityRequest {
   ActivityRequest request = 1;
 }
 
-message CreateActivityResponse {
+message Response {
    int64 id = 1;
 }
 
@@ -44,32 +44,19 @@ message GetActivityRequest {
 }
 
 message GetActivityResponse {
-  repeated ActivityResponse activity =1;
+  ActivityResponse activity =1;
 }
 
 message UpdateActivityRequest {
   ActivityRequest activity =1;
 }
 
-message UpdateActivityResponse {
-   int64 id =1;
-}
-
 message DeleteActivityRequest {
   int64 id =1;
 }
 
-message DeleteActivityResponse {
-  int64 id =1;
-}
-
-
-message CreateUserRequest {
+message Request {
   UserRequest request = 1;
-}
-
-message CreateUserResponse {
-  int64 id = 1;
 }
 
 message GetUserRequest {
@@ -77,39 +64,26 @@ message GetUserRequest {
 }
 
 message GetUserResponse {
-  repeated UserResponse User =1;
-}
-
-message UpdateUserRequest {
-  UserRequest activity =1;
-}
-
-message UpdateUserResponse {
-  int64 id =1;
+  UserResponse User =1;
 }
 
 message DeleteUserRequest {
   int64 id =1;
 }
 
-message DeleteUserResponse {
-  int64 id =1;
-}
-
-
 
 service ActivityService {
-  rpc CreateActivity (CreateActivityRequest) returns (CreateActivityResponse) {}
+  rpc CreateActivity (CreateActivityRequest) returns (Response) {}
   rpc GetActivity (GetActivityRequest) returns (GetActivityResponse) {}
-  rpc UpdateActivity (UpdateActivityRequest) returns (UpdateActivityResponse) {}
-  rpc DeleteActivity (DeleteActivityRequest) returns (DeleteActivityResponse) {}
+  rpc UpdateActivity (UpdateActivityRequest) returns (Response) {}
+  rpc DeleteActivity (DeleteActivityRequest) returns (Response) {}
 }
 
 service UserService {
 
-  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc CreateUser (Request) returns (Response) {}
   rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
-  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
-  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+  rpc UpdateUser (Request) returns (Response) {}
+  rpc DeleteUser (DeleteUserRequest) returns (Response) {}
 
 }
