@@ -1,4 +1,4 @@
-module aishW
+module activity
 
 go 1.15
 

@@ -1,13 +1,13 @@
-//go:generate protoc ./aishW.proto --go_out=plugins=grpc:./pb
+//go:generate protoc ./activity.proto --go_out=plugins=grpc:./pb
 package main
 
 import (
-	"aishW/models/activity"
-	"aishW/models/activity/mysql"
-	"aishW/models/user"
-	mysql2 "aishW/models/user/mysql"
-	"aishW/pb"
-	"aishW/utils"
+	"activity/models/activity"
+	activityRepo "activity/models/activity/mysql"
+	"activity/models/user"
+	userRepo "activity/models/user/mysql"
+	"activity/pb"
+	"activity/utils"
 	"fmt"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -40,9 +40,9 @@ func injectDependencies() {
 	}
 
 	log.Println("database connected !!")
-	activityRepo := mysql.NewActivityRepo(db)
-	activity.NewService(activityRepo)
+	repo := activityRepo.NewActivityRepo(db)
+	activity.NewService(repo)
 
-	userRepo := mysql2.NewUserRepo(db)
-	user.NewServiceUser(userRepo)
+	r := userRepo.NewUserRepo(db)
+	user.NewServiceUser(r)
 }

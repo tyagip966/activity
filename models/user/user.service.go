@@ -1,8 +1,8 @@
 package user
 
 import (
-	"aishW/models"
-	"aishW/pb"
+	"activity/models"
+	"activity/pb"
 	"context"
 )
 

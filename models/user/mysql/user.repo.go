@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"aishW/models"
+	"activity/models"
 	"database/sql"
 )
 
