@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+option go_package="pb";
+
+message ActivityRequest {
+  int64   userId       = 1;
+  string  ActivityType = 2;
+  string  TimeSpent    = 3;
+  string  CreatedAt    = 4;
+}
+
+message ActivityResponse {
+  int64   id           = 1;
+  int64   userId       = 2;
+  string  ActivityType = 3;
+  string  TimeSpent    = 4;
+  string  CreatedAt    = 5;
+}
+
+message UserRequest {
+  string Name  = 1;
+  string Email = 2;
+  string Phone = 3;
+}
+
+message UserResponse {
+  int64 id     = 1;
+  string Name  = 2;
+  string Email = 3;
+  string Phone = 4;
+}
+
+
+message CreateActivityRequest {
+  ActivityRequest request = 1;
+}
+
+message CreateActivityResponse {
+   int64 id = 1;
+}
+
+message GetActivityRequest {
+   int64 userid = 1;
+}
+
+message GetActivityResponse {
+  repeated ActivityResponse activity =1;
+}
+
+message UpdateActivityRequest {
+  ActivityRequest activity =1;
+}
+
+message UpdateActivityResponse {
+   int64 id =1;
+}
+
+message DeleteActivityRequest {
+  int64 id =1;
+}
+
+message DeleteActivityResponse {
+  int64 id =1;
+}
+
+
+message CreateUserRequest {
+  UserRequest request = 1;
+}
+
+message CreateUserResponse {
+  int64 id = 1;
+}
+
+message GetUserRequest {
+  int64 userid = 1;
+}
+
+message GetUserResponse {
+  repeated UserResponse User =1;
+}
+
+message UpdateUserRequest {
+  UserRequest activity =1;
+}
+
+message UpdateUserResponse {
+  int64 id =1;
+}
+
+message DeleteUserRequest {
+  int64 id =1;
+}
+
+message DeleteUserResponse {
+  int64 id =1;
+}
+
+
+
+service ActivityService {
+  rpc CreateActivity (CreateActivityRequest) returns (CreateActivityResponse) {}
+  rpc GetActivity (GetActivityRequest) returns (GetActivityResponse) {}
+  rpc UpdateActivity (UpdateActivityRequest) returns (UpdateActivityResponse) {}
+  rpc DeleteActivity (DeleteActivityRequest) returns (DeleteActivityResponse) {}
+}
+
+service UserService {
+
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {}
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+
+}
