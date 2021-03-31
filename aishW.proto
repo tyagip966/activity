@@ -31,7 +31,7 @@ message UserResponse {
 }
 
 
-message CreateActivityRequest {
+message ActivityRequestBdy {
   ActivityRequest request = 1;
 }
 
@@ -40,15 +40,15 @@ message Response {
 }
 
 message GetActivityRequest {
-   int64 userid = 1;
+   int64 id = 1;
 }
 
 message GetActivityResponse {
   ActivityResponse activity =1;
 }
 
-message UpdateActivityRequest {
-  ActivityRequest activity =1;
+message GetActivityByUserResponse {
+  repeated ActivityResponse activity =1;
 }
 
 message DeleteActivityRequest {
@@ -73,9 +73,10 @@ message DeleteUserRequest {
 
 
 service ActivityService {
-  rpc CreateActivity (CreateActivityRequest) returns (Response) {}
+  rpc CreateActivity (ActivityRequestBdy) returns (Response) {}
   rpc GetActivity (GetActivityRequest) returns (GetActivityResponse) {}
-  rpc UpdateActivity (UpdateActivityRequest) returns (Response) {}
+  rpc GetActivityByUserId (GetActivityRequest) returns (GetActivityByUserResponse) {}
+  rpc UpdateActivity (ActivityRequestBdy) returns (Response) {}
   rpc DeleteActivity (DeleteActivityRequest) returns (Response) {}
 }
 
