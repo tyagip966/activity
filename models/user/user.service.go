@@ -1,11 +1,17 @@
 package user
 
 import (
+	"aishW/models"
 	"aishW/pb"
 	"context"
 )
 
 type ServiceUser struct {
+	repo models.UserRepository
+}
+
+func NewServiceUser(repo models.UserRepository) *ServiceUser {
+	return &ServiceUser{repo: repo}
 }
 
 func (u ServiceUser) CreateUser(ctx context.Context, request *pb.CreateUserRequest) (*pb.CreateUserResponse, error) {

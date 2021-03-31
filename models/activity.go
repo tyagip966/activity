@@ -17,6 +17,10 @@ type ActivityService interface {
 	Read()
 }
 
+type ActivityRepository interface {
+
+}
+
 func (a Activities) IsValid() error {
 	return nil
 }

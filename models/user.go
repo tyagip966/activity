@@ -6,3 +6,8 @@ type User struct {
 	Email string
 	Phone string
 }
+
+
+type UserRepository interface {
+
+}

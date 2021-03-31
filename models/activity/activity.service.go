@@ -7,10 +7,11 @@ import (
 )
 
 type Service struct {
+	repo   models.ActivityRepository
 }
 
-func NewService() models.ActivityService {
-	return &Service{}
+func NewService(repo models.ActivityRepository) models.ActivityService {
+	return &Service{repo: repo}
 }
 
 func (s Service) Play() {
