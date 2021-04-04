@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"log"
 	"strings"
 	"time"
 )
@@ -45,6 +46,7 @@ func (a *Activities) IsValid() error {
 }
 
 func (a *Activities) IsDone() bool {
+	 log.Println("Hi Golang")
      if strings.ToLower(a.Status) == "done" {
      	return true
 	 }
