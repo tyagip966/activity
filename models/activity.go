@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"log"
 	"strings"
 	"time"
 )
@@ -32,6 +33,7 @@ type ActivityRepository interface {
 }
 
 func (a *Activities) IsValid() error {
+	log.Print("jkxcvxjvx")
 	if strings.ToLower(a.ActivityType) == "sleep" && (a.TimeSpent < "6h" || a.TimeSpent > "8h") {
          return errors.New("invalid time spent for activity "+a.ActivityType)
 	}
